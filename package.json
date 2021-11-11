@@ -1,6 +1,6 @@
 {
   "name": "retorno-cnab",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lê o arquivo retorno do CNAB",
   "main": "src/index.js",
   "scripts": {
