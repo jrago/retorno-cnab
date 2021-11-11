@@ -2,7 +2,7 @@
   "name": "retorno-cnab",
   "version": "1.0.0",
   "description": "Lê o arquivo retorno do CNAB",
-  "main": "/src/index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "nodemon src/index.js",
     "exemplo": "node exemplo/index.js"
