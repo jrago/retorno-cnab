@@ -5,11 +5,7 @@
 
 <!-- [START badges] -->
 
-[![NPM retorno-cnab package](https://img.shields.io/npm/v/retorno-cnba.svg)](https://npmjs.org/package/retorno-cnab)
-
-[![npm downloads](https://img.shields.io/npm/dm/retorno-cnab.svg?maxAge=604800)](https://npm-stat.com/charts.html?package=retorno-cnab&from=2017-01-1)
-
-[![npm downloads](https://img.shields.io/npm/dt/retorno-cnab.svg?maxAge=604800)](https://npm-stat.com/charts.html?package=retorno-cnab&from=2017-01-1)
+[![NPM retorno-cnab package](https://img.shields.io/npm/v/retorno-cnba.svg)](https://npmjs.org/package/retorno-cnab) [![npm downloads](https://img.shields.io/npm/dm/retorno-cnab.svg?maxAge=604800)](https://npm-stat.com/charts.html?package=retorno-cnab&from=2017-01-1) [![npm downloads](https://img.shields.io/npm/dt/retorno-cnab.svg?maxAge=604800)](https://npm-stat.com/charts.html?package=retorno-cnab&from=2017-01-1)
 
 <!-- [END badges] -->
 
