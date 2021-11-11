@@ -4,7 +4,8 @@
   "description": "Lê o arquivo retorno do CNAB",
   "main": "/src/index.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/index.js",
+    "exemplo": "node exemplo/index.js"
   },
   "author": "Vitor Ricardo",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "cnab400",
     "ler",
     "boletos",
-    "conciliação"
+    "conciliação",
+    "nodejs"
   ]
 }

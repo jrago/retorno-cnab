@@ -7,7 +7,7 @@ exports.lerCNB400 = (arquivo) => {
     // (1200 - 800) / 400 = 1 boleto
     const qtdBoletos = (tamanhoArquivo - 800) / 400;
     const inicioRodape = (tamanhoArquivo - 400);
-    console.log(tamanhoArquivo);
+    
     const cabecalho = lerCabecalho(arquivo);
     const boletos = [];
     for (let i = 0; i < qtdBoletos; i++) {
