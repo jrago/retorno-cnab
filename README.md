@@ -36,7 +36,7 @@ Utilizando via código:
 
 Retorno completo do arquivo:
 ```javascript
-const { RetornoCNAB } = require('../src/index');
+const { RetornoCNAB } = require('retorno-cnab');
 
 const exemplo = async () => {
     const arquivo = await new RetornoCNAB().CNAB400('CNAB400', './exemplo');
@@ -48,7 +48,7 @@ exemplo();
 
 Retorno completo do arquivo simplificado e formatado:
 ```javascript
-const { RetornoCNAB } = require('../src/index');
+const { RetornoCNAB } = require('retorno-cnab');
 
 const exemplo = async () => {
     const arquivo = await new RetornoCNAB().CNAB400Simples('CNAB400', './exemplo');
