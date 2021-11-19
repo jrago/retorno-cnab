@@ -20,3 +20,18 @@ exports.addEspacoDireita = (text, places = 8) => {
     }
     return String(text).padEnd(places, ' ');
 };
+
+exports.formatarNumero = (num) => {
+  return (parseInt(num, 10) / 100).toFixed(2);
+}
+
+exports.formatarData = (date) => {
+  if (date.trim() === ''){
+    return '';
+  }
+  
+  const dia = date.substr(0,2);
+  const mes = date.substr(2,2);
+  const ano = date.substr(4,2);
+  return `20${ano}-${mes}-${dia}`
+}

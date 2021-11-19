@@ -34,15 +34,25 @@ npm run exemplo
 ```
 Utilizando via código:
 
+Retorno completo do arquivo:
 ```javascript
-const { lerArquivo, lerCNB400 } = require('retorno-cnab');
+const { RetornoCNAB } = require('../src/index');
 
-const  exemplo = async () => {
-	const  arquivo = await  lerArquivo('NOME_ARQUIVO', 'DIRETORIO_DO_ARQUIVO');
+const exemplo = async () => {
+    const arquivo = await new RetornoCNAB().CNAB400('CNAB400', './exemplo');
+    console.log(arquivo);
+}
 
-	const  resultado = lerCNB400(arquivo);
+exemplo();
+```
 
-	console.log(resultado);
+Retorno completo do arquivo simplificado e formatado:
+```javascript
+const { RetornoCNAB } = require('../src/index');
+
+const exemplo = async () => {
+    const arquivo = await new RetornoCNAB().CNAB400Simples('CNAB400', './exemplo');
+    console.log(arquivo);
 }
 
 exemplo();

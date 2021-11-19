@@ -1,4 +1,30 @@
-exports.lerCNB400 = (arquivo) => {
+const { lerArquivo, formatarNumero, formatarData } = require('./utils');
+
+function RetornoCNAB () {}
+
+RetornoCNAB.prototype.CNAB400 = async function (fileName, dir = './tmp/cnab') {
+    if (!fileName) {
+        throw Error('Arquivo invalido');
+    }
+
+    const arquivo = await lerArquivo(fileName, dir);
+
+    return lerArquivoCNAB(arquivo);
+};
+
+RetornoCNAB.prototype.CNAB400Simples = async function (fileName, dir = './tmp/cnab') {
+    if (!fileName) {
+        throw Error('Arquivo invalido');
+    }
+
+    const arquivo = await lerArquivo(fileName, dir);
+
+    const retornoArquivo = lerArquivoCNAB(arquivo);
+    
+    return retornoSimples(retornoArquivo);
+};
+
+const lerArquivoCNAB = (arquivo) => {
     const tamanhoArquivo = arquivo.length;
 
     // 400 = cabecalho
@@ -21,7 +47,7 @@ exports.lerCNB400 = (arquivo) => {
         boletos,
         rodape
     }
-};
+}
 
 const lerCabecalho = (arquivo) => {
     const tipoRegistro = arquivo.substr(0, 1);
@@ -232,3 +258,45 @@ const lerRodape = (arquivo, linhaInicial) => {
         numeroSequencial,
     }
 }
+
+const retornoSimples = (arquivo) => {
+
+    const { cabecalho, boletos, rodape } = arquivo;
+
+    const boletosSimples = boletos.map(b => {
+        return {
+            identificacaoTitulo: b.identificacaoTitulo,
+            numeroInscricao: b.numeroInscricao,
+            dataOcorrencia: formatarData(b.dataOcorrencia),
+            valorTitulo: formatarNumero(b.valorTitulo),
+            tarifaCobranca: formatarNumero(b.tarifaCobranca),
+            valorIOF: formatarNumero(b.valorIOF),
+            valorAbatimento: formatarNumero(b.valorAbatimento),
+            descontos: formatarNumero(b.descontos),
+            valorPrincipal: formatarNumero(b.valorPrincipal),
+            jurosMoraMulta: formatarNumero(b.jurosMoraMulta),
+            outrosCreditos: formatarNumero(b.outrosCreditos),
+            dataCredito: formatarData(b.dataCredito),
+            codLiquidacao: b.codLiquidacao.trim()
+        }
+    })
+
+    return {
+        cabecalho: {
+            dataGeracao: formatarData(cabecalho.dataGeracao),
+            dataCredito: formatarData(cabecalho.dataCredito)
+        },
+        boletos: boletosSimples,
+        rodape: {
+            cobrancaDireta: {
+                qtdeTitulos: parseInt(rodape.cobrancaDireta.qtdeTitulos, 10),
+                valorTotal: formatarNumero(rodape.cobrancaDireta.valorTotal),
+            },
+            controleArquivo: parseInt(rodape.controleArquivo, 10),
+            qtdeDetalhes: parseInt(rodape.qtdeDetalhes, 10),
+            valorTotalInformado: formatarNumero(rodape.valorTotalInformado),
+        }
+    };
+}
+
+module.exports = RetornoCNAB;
