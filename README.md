@@ -39,7 +39,7 @@ Retorno completo do arquivo:
 const { RetornoCNAB } = require('retorno-cnab');
 
 const exemplo = async () => {
-    const arquivo = await new RetornoCNAB().CNAB400('CNAB400', './exemplo');
+    const arquivo = await new RetornoCNAB().CNAB400('NOME_ARQUIVO', 'DIRETORIO_DO_ARQUIVO');
     console.log(arquivo);
 }
 
@@ -51,7 +51,7 @@ Retorno completo do arquivo simplificado e formatado:
 const { RetornoCNAB } = require('retorno-cnab');
 
 const exemplo = async () => {
-    const arquivo = await new RetornoCNAB().CNAB400Simples('CNAB400', './exemplo');
+    const arquivo = await new RetornoCNAB().CNAB400Simples('NOME_ARQUIVO', 'DIRETORIO_DO_ARQUIVO');
     console.log(arquivo);
 }
 
